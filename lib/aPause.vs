@@ -3,16 +3,16 @@
 #BEGIN CLIENTCODE
 #BEGIN JAVASCRIPT
 
-(function() {
-	let engineWaitId = setInterval(function() {
+(() => {
+	const engineWaitId = setInterval(() => {
 		if (VS.Client) {
 			clearInterval(engineWaitId);
 			buildPause();
 		}
 	})
 
-	let buildPause = function() {
-		let aPause = {};
+	const buildPause = () => {
+		const aPause = {};
 		aPause.paused = false;
 		aPause.version = '0.1.0';
 		
@@ -53,7 +53,7 @@
 		}
 
 		aPause.onPaused = function() {
-			for (var di of VS.World.getDiobs()) {
+			for (const di of VS.World.getDiobs()) {
 				if (typeof(di.onPaused) === 'function') {
 					di.onPaused();
 				}
@@ -64,7 +64,7 @@
 		}
 
 		aPause.onUnPaused = function() {
-			for (var di of VS.World.getDiobs()) {
+			for (const di of VS.World.getDiobs()) {
 				if (typeof(di.onUnPaused) === 'function') {
 					di.onUnPaused();
 				}
