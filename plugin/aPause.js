@@ -28,27 +28,13 @@
 		VS.Client.aPause = aPause;
 		VS.World.global.aPause = aPause;
 
-		if (!VS.Client.onWindowBlurSet) {
-			VS.Client._onWindowBlur = VS.Client.onWindowBlur;
-			VS.Client.onWindowBlurSet = true;
-			VS.Client.onWindowBlur = function() {
-				aPause.pause();
-				if (this._onWindowBlur) {
-					this._onWindowBlur.apply(this, arguments);
-				}
-			}
-		}
+		VS.global.aListener.addEventListener(VS.Client, 'onWindowBlur', function() {
+			aPause.pause();
+		});
 
-		if (!VS.Client.onWindowFocusSet) {
-			VS.Client._onWindowFocus = VS.Client.onWindowFocus;
-			VS.Client.onWindowFocusSet = true;
-			VS.Client.onWindowFocus = function() {
-				aPause.unPause();
-				if (this._onWindowFocus) {
-					this._onWindowFocus.apply(this, arguments);
-				}
-			}
-		}
+		VS.global.aListener.addEventListener(VS.Client, 'onWindowFocus', function() {
+			aPause.unPause();
+		});
 
 		aPause.pause = function() {
 			this.onPaused();
