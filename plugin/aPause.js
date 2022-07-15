@@ -31,11 +31,12 @@
 		VS.global.aListener.addEventListener(VS.Client, 'onWindowBlur', function() {
 			aPause.pause();
 		});
-
+/* 
+ * desc: This is in the event the client is to unpause the game when focus is gained back. This may not be intended behavior so its not included in the library.d
 		VS.global.aListener.addEventListener(VS.Client, 'onWindowFocus', function() {
 			aPause.unPause();
 		});
-
+ */
 		aPause.pause = function() {
 			this.onPaused();
 			this.paused = true;
@@ -44,6 +45,10 @@
 		aPause.unPause = function() {
 			this.onUnPaused();
 			this.paused = false;
+		}
+
+		aPause.isPaused() = function() {
+			return this.paused;
 		}
 
 		aPause.onPaused = function() {
