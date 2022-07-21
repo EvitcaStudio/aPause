@@ -30,8 +30,8 @@ A plugin that pauses the game when the screen loses focus.
 ###  Client.onUnPaused()  `event`  
    - `desc`: Event function called when the game is unpaused    
 
-###  diob.onPaused()  `event`  
+###  diobInstance.onPaused()  `event`  
    - `desc`: Event function called when the game is paused       
 
-###  diob.onUnPaused()  `event`  
+###  diobInstance.onUnPaused()  `event`  
    - `desc`: Event function called when the game is unpaused     
