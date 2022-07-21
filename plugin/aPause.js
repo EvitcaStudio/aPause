@@ -26,7 +26,8 @@
 		
 		VS.Client.___EVITCA_aPause = true;
 		VS.Client.aPause = aPause;
-		VS.World.global.aPause = aPause;
+		VS.global.aPause = aPause;
+		window.aPause = aPause;
 
 		VS.global.aListener.addEventListener(VS.Client, 'onWindowBlur', function() {
 			aPause.pause();
